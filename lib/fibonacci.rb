@@ -5,8 +5,27 @@
 # ....
 # e.g. 6th fibonacci number is 8
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) or linear where n is the size of n 
+# Space complexity: O(1) 
 def fibonacci(n)
-  raise NotImplementedError
+  if n == nil || n < 0
+    raise ArgumentError, "That is not a valid value for n"
+  else 
+    return 0 if n == 0
+    return 1 if n == 1
+
+    i = 1
+    fibonacci_num = 1
+    previous_fibonacci_num = 0
+
+    while i < n
+      temp = fibonacci_num
+      fibonacci_num += previous_fibonacci_num
+      previous_fibonacci_num = temp 
+
+      i += 1
+    end 
+
+    return fibonacci_num
+  end 
 end
